@@ -13,6 +13,10 @@
 		8D95B5CA25FD0040002DE8DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D95B5C825FD0040002DE8DA /* Main.storyboard */; };
 		8D95B5CC25FD0043002DE8DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D95B5CB25FD0043002DE8DA /* Assets.xcassets */; };
 		8D95B5CF25FD0043002DE8DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D95B5CD25FD0043002DE8DA /* LaunchScreen.storyboard */; };
+		8D95B5F125FD0B13002DE8DA /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95B5F025FD0B13002DE8DA /* QuestionViewController.swift */; };
+		8D95B5F425FD29C5002DE8DA /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95B5F325FD29C5002DE8DA /* FinalViewController.swift */; };
+		8D95B5F725FD4F82002DE8DA /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95B5F625FD4F82002DE8DA /* Question.swift */; };
+		8D95B5FA25FD4F91002DE8DA /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D95B5F925FD4F91002DE8DA /* Answer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		8D95B5CB25FD0043002DE8DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D95B5CE25FD0043002DE8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D95B5D025FD0043002DE8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D95B5F025FD0B13002DE8DA /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		8D95B5F325FD29C5002DE8DA /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		8D95B5F625FD4F82002DE8DA /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		8D95B5F925FD4F91002DE8DA /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,59 @@
 		8D95B5C125FD0040002DE8DA /* Animal Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				8D95B5C225FD0040002DE8DA /* AppDelegate.swift */,
-				8D95B5C425FD0040002DE8DA /* SceneDelegate.swift */,
-				8D95B5C625FD0040002DE8DA /* ViewController.swift */,
-				8D95B5C825FD0040002DE8DA /* Main.storyboard */,
-				8D95B5CB25FD0043002DE8DA /* Assets.xcassets */,
-				8D95B5CD25FD0043002DE8DA /* LaunchScreen.storyboard */,
-				8D95B5D025FD0043002DE8DA /* Info.plist */,
+				8D95B5DC25FD0260002DE8DA /* Resources */,
+				8D95B5DB25FD0210002DE8DA /* Models */,
+				8D95B5DA25FD01F4002DE8DA /* View Controllers */,
+				8D95B5D825FD01B0002DE8DA /* Supporting Files */,
+				8D95B5D725FD0054002DE8DA /* Storyboards */,
 			);
 			path = "Animal Quiz";
+			sourceTree = "<group>";
+		};
+		8D95B5D725FD0054002DE8DA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8D95B5C825FD0040002DE8DA /* Main.storyboard */,
+				8D95B5CD25FD0043002DE8DA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8D95B5D825FD01B0002DE8DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D95B5C225FD0040002DE8DA /* AppDelegate.swift */,
+				8D95B5C425FD0040002DE8DA /* SceneDelegate.swift */,
+				8D95B5D025FD0043002DE8DA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D95B5DA25FD01F4002DE8DA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8D95B5C625FD0040002DE8DA /* ViewController.swift */,
+				8D95B5F025FD0B13002DE8DA /* QuestionViewController.swift */,
+				8D95B5F325FD29C5002DE8DA /* FinalViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8D95B5DB25FD0210002DE8DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D95B5F625FD4F82002DE8DA /* Question.swift */,
+				8D95B5F925FD4F91002DE8DA /* Answer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8D95B5DC25FD0260002DE8DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D95B5CB25FD0043002DE8DA /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D95B5F425FD29C5002DE8DA /* FinalViewController.swift in Sources */,
 				8D95B5C725FD0040002DE8DA /* ViewController.swift in Sources */,
 				8D95B5C325FD0040002DE8DA /* AppDelegate.swift in Sources */,
+				8D95B5FA25FD4F91002DE8DA /* Answer.swift in Sources */,
+				8D95B5F725FD4F82002DE8DA /* Question.swift in Sources */,
+				8D95B5F125FD0B13002DE8DA /* QuestionViewController.swift in Sources */,
 				8D95B5C525FD0040002DE8DA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +272,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				INFOPLIST_FILE = "/Users/laptop4ik/Developer/SwiftBook/Animal Quiz/Animal Quiz/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +328,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				INFOPLIST_FILE = "/Users/laptop4ik/Developer/SwiftBook/Animal Quiz/Animal Quiz/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -288,7 +346,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YBD3AD74KG;
-				INFOPLIST_FILE = "Animal Quiz/Info.plist";
+				INFOPLIST_FILE = "/Users/laptop4ik/Developer/SwiftBook/Animal Quiz/Animal Quiz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +365,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YBD3AD74KG;
-				INFOPLIST_FILE = "Animal Quiz/Info.plist";
+				INFOPLIST_FILE = "/Users/laptop4ik/Developer/SwiftBook/Animal Quiz/Animal Quiz/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
