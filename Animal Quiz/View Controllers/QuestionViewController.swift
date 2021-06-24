@@ -11,11 +11,20 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var rangeSlider: UISlider!
+    @IBOutlet weak var rangeSlider: UISlider! {
+        didSet {
+            let answerCount = Float(currentAnswers.count - 1)
+            rangeSlider.value = answerCount
+            //            let answersCount = Float(questions[questionIndex].answer.count - 1)
+            //            rangeSlider.maximumValue = answersCount
+        }
+    }
     
     @IBOutlet weak var singleStackView: UIStackView!
     @IBOutlet weak var multipleStackView: UIStackView!
     @IBOutlet weak var rangedStackView: UIStackView!
+    
+    @IBOutlet var multipleSwitches: [UISwitch]!
     
     @IBOutlet var singleButtons: [UIButton]!
     @IBOutlet var multipleLabels: [UILabel]!
@@ -28,31 +37,52 @@ class QuestionViewController: UIViewController {
         questions[questionIndex].answer
     }
     private var answerChosen : [Answer] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
     }
+    
     @IBAction func singleButtonPressed(_ sender: UIButton) {
         guard let currentIndex = singleButtons.firstIndex(of: sender) else {
             return }
         let currentAnswer = currentAnswers[currentIndex]
         answerChosen.append(currentAnswer)
         
-        newQuestion()
+        nextQuestion()
     }
     
     @IBAction func multipleAnswerButtonPressed() {
+        for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
+            if multipleSwitch.isOn {
+                answerChosen.append(answer)
+            }
+        }
+        nextQuestion()
     }
     
     @IBAction func rangedAnswerButtonPressed() {
+        //        let index = Int(rangeSlider.value)
+        switch rangeSlider.value {
+        case 0...0.3:
+            let index = 3
+            answerChosen.append(currentAnswers[index])
+        case 0.31...0.6:
+            let index = 2
+            answerChosen.append(currentAnswers[index])
+        case 0.61...0.85:
+            let index = 1
+            answerChosen.append(currentAnswers[index])
+        case 0.86...1:
+            let index = 0
+            answerChosen.append(currentAnswers[index])
+        default:
+            break
+        }
+        nextQuestion()
     }
-    
-    
-    
 }
-
-
-
 
 
 // MARK: Private
@@ -109,17 +139,25 @@ extension QuestionViewController {
     private func showRangeStackView(with answers: [Answer]) {
         multipleStackView.isHidden = true
         rangedStackView.isHidden = false
-        rangedLabels.first?.text = answers.first?.text
-        rangedLabels.last?.text = answers.last?.text
+        rangedLabels.first?.text = answers.last?.text
+        rangedLabels.last?.text = answers.first?.text
     }
     
-    private func newQuestion() {
+    private func nextQuestion() {
         questionIndex += 1
         if questionIndex < questions.count {
             updateUI()
+            print(answerChosen)
             return
         }
         performSegue(withIdentifier: "showResult", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showResult" {
+            let finalVC = segue.destination as! FinalViewController
+            finalVC.answerArray = answerChosen
+        }
     }
 }
 

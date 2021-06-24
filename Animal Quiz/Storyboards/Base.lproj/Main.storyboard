@@ -220,7 +220,6 @@
                                         <state key="normal" title="Ответить"/>
                                         <connections>
                                             <action selector="rangedAnswerButtonPressed" destination="fVV-3E-xNK" eventType="touchUpInside" id="rO4-oO-CJx"/>
-                                            <segue destination="pfR-zq-g5d" kind="show" id="R2k-es-dMf"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -239,6 +238,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FjM-FJ-djJ" firstAttribute="centerY" secondItem="THQ-fv-zGn" secondAttribute="centerY" id="5sm-DM-EEk"/>
+                            <constraint firstItem="Cf0-s8-GZu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PjO-9I-FHB" secondAttribute="trailing" constant="64.5" id="7d0-tj-Bvn"/>
                             <constraint firstItem="Cf0-s8-GZu" firstAttribute="trailing" secondItem="wbn-Og-eC8" secondAttribute="trailing" id="Dlw-2d-t8L"/>
                             <constraint firstItem="Cf0-s8-GZu" firstAttribute="trailing" secondItem="yqc-t5-vYE" secondAttribute="trailing" constant="16" id="I6X-Eq-cKY"/>
                             <constraint firstItem="wbn-Og-eC8" firstAttribute="leading" secondItem="Cf0-s8-GZu" secondAttribute="leading" id="M0z-36-DuL"/>
@@ -274,6 +274,10 @@
                         <outletCollection property="multipleLabels" destination="wzE-Rt-IcI" collectionClass="NSMutableArray" id="mzI-1w-N7J"/>
                         <outletCollection property="rangedLabels" destination="vk1-fq-zlP" collectionClass="NSMutableArray" id="AbQ-Hb-u5X"/>
                         <outletCollection property="rangedLabels" destination="kkc-Be-f4N" collectionClass="NSMutableArray" id="axe-Tg-Cho"/>
+                        <outletCollection property="multipleSwitches" destination="4On-gU-kMc" collectionClass="NSMutableArray" id="k9a-UW-MAb"/>
+                        <outletCollection property="multipleSwitches" destination="A9z-u6-HuY" collectionClass="NSMutableArray" id="FMm-3e-JjN"/>
+                        <outletCollection property="multipleSwitches" destination="6rW-Vv-QcU" collectionClass="NSMutableArray" id="7Fw-dR-Gk2"/>
+                        <outletCollection property="multipleSwitches" destination="TWc-XJ-TOm" collectionClass="NSMutableArray" id="62b-lq-ZgB"/>
                         <segue destination="pfR-zq-g5d" kind="show" identifier="showResult" id="fd0-g7-Aut"/>
                     </connections>
                 </viewController>
@@ -316,10 +320,19 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результаты" id="tx7-E3-2sN">
-                        <barButtonItem key="rightBarButtonItem" title="Готово" id="EPx-MK-s42"/>
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="EPx-MK-s42">
+                            <connections>
+                                <segue destination="ehR-QU-WyT" kind="unwind" unwindAction="unwindFor:" id="mRr-mW-EyT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionResultLabel" destination="dkm-7q-C7v" id="6TI-3O-Ca7"/>
+                        <outlet property="mainResultLabel" destination="NeX-Jh-b2X" id="J7G-oO-LFf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V6n-A8-Rhv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ehR-QU-WyT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2416.8000000000002" y="117.39130434782609"/>
         </scene>
@@ -342,9 +355,6 @@
             <point key="canvasLocation" x="848.79999999999995" y="117.39130434782609"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fd0-g7-Aut"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -50,7 +50,6 @@ extension Question {
                         Answer(text: "Ненавижу", type: .turtle)
                      ]
             ),
-            ]
-            
-            }
+        ]
+    }
 }
